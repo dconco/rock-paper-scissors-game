@@ -20,3 +20,5 @@ char generateComputerGame();
  * @return Formatted string
  */
 std::string formatGame(char shortForm);
+
+void showResult();

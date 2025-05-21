@@ -5,6 +5,14 @@
 
 using namespace std;
 
+/**
+ * Result of the game
+ * 0 - Draw
+ * 1 - Lose
+ * 2 - Win
+ */
+int result[3]{0, 0, 0};
+
 int main()
 {
    cout << "===========================================================" << endl;
@@ -71,13 +79,19 @@ bool playGame(char playerGame, char computerGame)
       switch (computerGame)
       {
       case 'r':
+         result[0]++;
          cout << drawASCII;
+         showResult();
          break;
       case 'p':
+         result[1]++;
          cout << loseASCII;
+         showResult();
          break;
       case 's':
+         result[2]++;
          cout << winASCII;
+         showResult();
          break;
       }
       break;
@@ -89,13 +103,19 @@ bool playGame(char playerGame, char computerGame)
       switch (computerGame)
       {
       case 'r':
+         result[2]++;
          cout << winASCII;
+         showResult();
          break;
       case 'p':
+         result[0]++;
          cout << drawASCII;
+         showResult();
          break;
       case 's':
+         result[1]++;
          cout << loseASCII;
+         showResult();
          break;
       }
       break;
@@ -107,13 +127,19 @@ bool playGame(char playerGame, char computerGame)
       switch (computerGame)
       {
       case 'r':
+         result[1]++;
          cout << loseASCII;
+         showResult();
          break;
       case 'p':
+         result[2]++;
          cout << winASCII;
+         showResult();
          break;
       case 's':
+         result[0]++;
          cout << drawASCII;
+         showResult();
          break;
       }
       break;
@@ -159,4 +185,25 @@ string formatGame(char shortForm)
    }
 
    return 0;
+}
+
+// void showResult()
+// {
+//    cout << endl
+//         << "===========================================================" << endl;
+//    cout << "RESULTS" << endl;
+//    cout << "===========================================================" << endl;
+//    cout << "Draw: " << result[0] << endl;
+//    cout << "Lose: " << result[1] << endl;
+//    cout << "Win: " << result[2] << endl;
+// }
+
+void showResult()
+{
+   cout << endl
+        << "*************************************************" << endl;
+   cout << "     Draw: " << result[0]
+        << "         Lose: " << result[1]
+        << "         Win: " << result[2] << endl;
+   cout << "*************************************************" << endl;
 }
